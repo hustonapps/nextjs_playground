@@ -1,5 +1,5 @@
 "use server";
-import { redirect } from "next/navigation";
+import { redirect, revalidatePath } from "next/navigation";
 import { saveMeal } from "./meals";
 
 function validateIsRequired(text) {
@@ -42,5 +42,6 @@ export async function shareMeal(prevState, formData) {
   }
 
   await saveMeal(meal);
+  revalidatePath("/meals", "page");
   redirect("/meals");
 }
