@@ -8,6 +8,16 @@
   font-weight: bold;
 }
 
+.label.error {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: var(--error);
+  font-weight: bold;
+}
+
 .textarea {
   display: block;
   width: 100%;
@@ -20,7 +30,25 @@
   color: #ddd6cb;
 }
 
+.textarea.error {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #454952;
+  background: #1c2027;
+  font-size: 1.25rem;
+  font-family: "Montserrat", sans-serif;
+  color: #ddd6cb;
+  border-color: var(--error);
+}
+
 .textarea:focus {
   outline-color: #f99f2a;
   background-color: #1f252d;
+}
+
+.error {
+  font-size: 14px;
+  color: var(--error);
 }

@@ -19,6 +19,17 @@
   font-weight: bold;
 }
 
+.label.error {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: #b3aea5;
+  font-weight: bold;
+  color: var(--error);
+}
+
 .picker .button {
   border: 0;
   padding: 0.5rem 1.5rem;
@@ -45,6 +56,18 @@
   position: relative;
 }
 
+.preview.error {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid var(--error);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--error);
+  position: relative;
+}
+
 .preview p {
   margin: 0;
   padding: 1rem;
@@ -52,4 +75,9 @@
 
 .preview img {
   object-fit: cover;
+}
+
+.error {
+  font-size: 14px;
+  color: var(--error);
 }

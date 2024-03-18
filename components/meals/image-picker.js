@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import classes from "./image-picker.module.css";
 
-export default function ImagePicker({ label, name }) {
+export default function ImagePicker({ label, name, errorMessage = "" }) {
   const [pickedImage, setPickedImage] = useState(null);
 
   const imageInput = useRef();
@@ -31,11 +31,21 @@ export default function ImagePicker({ label, name }) {
 
   return (
     <div className={classes.picker}>
-      <label className={classes.label} htmlFor={name}>
+      <label
+        className={`${classes.label} ${
+          errorMessage ? classes.error : undefined
+        }`}
+        htmlFor={name}
+      >
         {label}
       </label>
       <div className={classes.controls}>
-        <div className={classes.preview}>
+        {errorMessage && <p className={classes.error}>{errorMessage}</p>}
+        <div
+          className={`${classes.preview} ${
+            errorMessage ? classes.error : undefined
+          }`}
+        >
           {!!pickedImage ? (
             <Image src={pickedImage} fill alt="image selected by user" />
           ) : (
