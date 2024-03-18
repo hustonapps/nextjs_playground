@@ -1,9 +1,14 @@
 .refresh {
   cursor: pointer;
-  color: #ff9b05;
+  background: linear-gradient(180deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .refresh:hover {
-  color: #f9572a;
-  text-decoration: underline;
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
