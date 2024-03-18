@@ -2,6 +2,6 @@
 
 ## To start
 
-- npm i
-- node initdb.js
-- npm run dev
+- `npm i`
+- `node initdb.js`
+- `npm run dev`
