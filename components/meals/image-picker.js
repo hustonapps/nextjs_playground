@@ -31,7 +31,9 @@ export default function ImagePicker({ label, name }) {
 
   return (
     <div className={classes.picker}>
-      <label htmlFor={name}>{label}</label>
+      <label className={classes.label} htmlFor={name}>
+        {label}
+      </label>
       <div className={classes.controls}>
         <div className={classes.preview}>
           {!!pickedImage ? (
