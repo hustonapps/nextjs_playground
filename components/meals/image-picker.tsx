@@ -3,22 +3,35 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import classes from "./image-picker.module.css";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
-export default function ImagePicker({ label, name, errorMessage = "" }) {
-  const [pickedImage, setPickedImage] = useState(null);
+interface ImagePickerProps {
+  label: string;
+  name: string;
+  errorMessage?: string | null | undefined;
+}
 
-  const imageInput = useRef();
+export default function ImagePicker({
+  label,
+  name,
+  errorMessage = "",
+}: Readonly<ImagePickerProps>) {
+  const [pickedImage, setPickedImage] = useState<
+    string | ArrayBuffer | StaticImport | null
+  >();
+
+  const imageInput = useRef<null | HTMLInputElement>(null);
 
   const onClickPickImage = () => {
     imageInput.current?.click();
   };
 
-  const handleImageChange = (e) => {
-    const [file] = e.target.files;
-    if (!file) {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || !e.target.files?.[0]) {
       setPickedImage(null);
       return;
     }
+    const file = e.target.files[0];
 
     const fileReader = new FileReader();
 
@@ -47,7 +60,11 @@ export default function ImagePicker({ label, name, errorMessage = "" }) {
           }`}
         >
           {!!pickedImage ? (
-            <Image src={pickedImage} fill alt="image selected by user" />
+            <Image
+              src={pickedImage as StaticImport}
+              fill
+              alt="image selected by user"
+            />
           ) : (
             "No image picked"
           )}

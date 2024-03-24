@@ -1,12 +1,20 @@
-import classes from "./text-field.module.css";
+import classes from "./textarea.module.css";
 
-export default function TextField({
+interface TextAreaProps {
+  name: string;
+  label: string;
+  errorMessage?: string | null | undefined;
+  required?: boolean;
+  rows?: number;
+}
+
+export default function TextArea({
   name,
   label,
-  type = "text",
-  required = true,
   errorMessage = "",
-}) {
+  required = true,
+  rows = 10,
+}: Readonly<TextAreaProps>) {
   return (
     <p>
       <label
@@ -17,15 +25,15 @@ export default function TextField({
       >
         {label}
       </label>
-      <input
-        className={`${classes.textField} ${
+      <textarea
+        className={`${classes.textarea} ${
           errorMessage ? classes.error : undefined
         }`}
-        type={type}
         id={name}
         name={name}
+        rows={rows}
         required={required}
-      />
+      ></textarea>
       {errorMessage && <p className={classes.error}>{errorMessage}</p>}
     </p>
   );

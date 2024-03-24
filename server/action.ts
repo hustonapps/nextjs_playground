@@ -1,12 +1,16 @@
 "use server";
-import { redirect, revalidatePath } from "next/navigation";
+import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
+import { revalidatePath } from "next/cache";
 
-function validateIsRequired(text) {
-  return text?.trim() ? null : "Field is required";
+function validateIsRequired(text: string | FormDataEntryValue) {
+  return `${text}`?.trim() ? null : "Field is required";
 }
 
-export async function shareMeal(prevState, formData) {
+export async function shareMeal(
+  _: Record<string, unknown>,
+  formData: FormData
+) {
   const entries = Object.fromEntries(formData);
   const meal = {
     title: entries.title,
@@ -23,9 +27,9 @@ export async function shareMeal(prevState, formData) {
     validateIsRequired(meal.instructions) ||
     validateIsRequired(meal.creator) ||
     validateIsRequired(meal.creator_email) ||
-    !meal.creator_email.includes("@") || // quick hacky email validation for now
+    !`${meal.creator_email}`.includes("@") || // quick hacky email validation for now
     !meal.image ||
-    meal.image.size === 0
+    (meal.image as File).size === 0
   ) {
     return {
       title: validateIsRequired(meal.title),
@@ -34,10 +38,10 @@ export async function shareMeal(prevState, formData) {
       name: validateIsRequired(meal.creator),
       email:
         validateIsRequired(meal.creator_email) ||
-        !meal.creator_email.includes("@")
+        !`${meal.creator_email}`.includes("@")
           ? "Please enter a valid email"
           : null,
-      image: meal.image.size === 0 ? "Please select an image" : null,
+      image: (meal.image as File).size === 0 ? "Please select an image" : null,
     };
   }
 

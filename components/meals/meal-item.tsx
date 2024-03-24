@@ -1,9 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MealItem as MealItemProps } from "./types";
 
 import classes from "./meal-item.module.css";
 
-export default function MealItem({ title, meal_id, image, summary, creator }) {
+export default function MealItem({
+  title,
+  meal_id,
+  image,
+  summary,
+  creator,
+}: Readonly<MealItemProps>) {
   return (
     <article className={classes.meal}>
       <header>

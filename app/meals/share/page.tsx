@@ -16,7 +16,7 @@ export default function ShareMealPage() {
     instructions: "",
     name: "",
     email: "",
-    iamge: "",
+    image: "",
   });
   return (
     <>

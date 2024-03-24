@@ -3,7 +3,11 @@ import { notFound } from "next/navigation";
 import { getMeal } from "@/server/meals";
 import classes from "./page.module.css";
 
-export default function MealDetailsPage({ params }) {
+export default function MealDetailsPage({
+  params,
+}: {
+  params: { mealId: string };
+}) {
   const meal = getMeal(params.mealId);
 
   if (!meal) {
