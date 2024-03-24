@@ -1,4 +1,4 @@
-import classes from "./text-field.module.css";
+import classes from "./text-field.module.scss";
 
 interface TextFieldProps {
   name: string;

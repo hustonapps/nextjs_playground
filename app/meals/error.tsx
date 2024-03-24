@@ -1,5 +1,5 @@
 "use client";
-import classes from "./error.module.css";
+import classes from "./error.module.scss";
 
 export default function MealsError() {
   const refreshPage = () => {

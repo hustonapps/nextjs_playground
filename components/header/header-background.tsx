@@ -1,4 +1,4 @@
-import classes from "./header-background.module.css";
+import classes from "./header-background.module.scss";
 
 export default function HeaderBackground() {
   return (

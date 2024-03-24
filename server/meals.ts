@@ -2,20 +2,23 @@ import fs from "node:fs";
 import sql from "better-sqlite3";
 import slugify from "slugify";
 import xss from "xss";
+import { TMeal } from "./types";
 
 const db = sql("meals.db");
 
-export async function getMeals() {
+export async function getMeals(): Promise<TMeal[]> {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const rando = Math.floor(Math.random() * 10);
   if (rando % 5 === 0) {
     throw new Error("loading meals failed");
   }
-  return db.prepare("SELECT * FROM Meals").all();
+  return db.prepare("SELECT * FROM Meals").all() as TMeal[];
 }
 
-export function getMeal(id: string) {
-  return db.prepare("SELECT * FROM Meals WHERE meal_id = ?").get(id);
+export function getMeal(id: string): TMeal {
+  return db
+    .prepare<string>("SELECT * FROM Meals WHERE meal_id = ?")
+    .get(id) as TMeal;
 }
 
 type FormSubmitData = {

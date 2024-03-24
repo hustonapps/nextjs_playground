@@ -17,17 +17,17 @@
   text-transform: uppercase;
   color: #b3aea5;
   font-weight: bold;
-}
 
-.label.error {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
-  color: #b3aea5;
-  font-weight: bold;
-  color: var(--error);
+  &.error {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    color: #b3aea5;
+    font-weight: bold;
+    color: var(--error);
+  }
 }
 
 .picker .button {
@@ -54,27 +54,27 @@
   text-align: center;
   color: #a4abb9;
   position: relative;
-}
 
-.preview.error {
-  width: 10rem;
-  height: 10rem;
-  border: 2px solid var(--error);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--error);
-  position: relative;
-}
+  &.error {
+    width: 10rem;
+    height: 10rem;
+    border: 2px solid var(--error);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--error);
+    position: relative;
+  }
 
-.preview p {
-  margin: 0;
-  padding: 1rem;
-}
+  p {
+    margin: 0;
+    padding: 1rem;
+  }
 
-.preview img {
-  object-fit: cover;
+  img {
+    object-fit: cover;
+  }
 }
 
 .error {

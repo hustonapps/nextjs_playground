@@ -5,10 +5,14 @@
   max-width: 75rem;
   color: #ddd6cb;
   font-size: 1.5rem;
-}
 
-.header h1 {
-  font-family: "Montserrat", sans-serif;
+  h1 {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  p {
+    margin: 0;
+  }
 }
 
 .highlight {
@@ -16,10 +20,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.header p {
-  margin: 0;
 }
 
 .cta a {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MealItem as MealItemProps } from "./types";
 
-import classes from "./meal-item.module.css";
+import classes from "./meal-item.module.scss";
 
 export default function MealItem({
   title,

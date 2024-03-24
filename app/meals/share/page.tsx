@@ -4,7 +4,7 @@ import ImagePicker from "@/components/meals/image-picker";
 import MealsFormSubmit from "@/components/meals/meals-form-submit";
 import TextField from "@/components/form-controls/text-field";
 import TextArea from "@/components/form-controls/textarea";
-import classes from "./page.module.css";
+import classes from "./page.module.scss";
 import { shareMeal } from "@/server/action";
 
 const { header, highlight, main, form, row, actions } = classes;

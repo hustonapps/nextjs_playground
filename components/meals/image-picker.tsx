@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import classes from "./image-picker.module.css";
+import classes from "./image-picker.module.scss";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface ImagePickerProps {

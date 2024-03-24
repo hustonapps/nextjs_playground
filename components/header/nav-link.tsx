@@ -2,9 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import classes from "./nav-link.module.css";
+import classes from "./nav-link.module.scss";
 
-export default function NavLink({ to, children }) {
+interface NavLinkProps {
+  to: string;
+  children: React.ReactNode;
+}
+
+export default function NavLink({ to, children }: Readonly<NavLinkProps>) {
   const path = usePathname();
   return (
     <Link

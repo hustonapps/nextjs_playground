@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/logo.png";
 import NavLink from "@/components/header/nav-link";
-import classes from "./header.module.css";
+import classes from "./header.module.scss";
 import HeaderBackground from "./header-background";
 
 export default function Header() {

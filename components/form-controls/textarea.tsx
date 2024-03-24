@@ -1,4 +1,4 @@
-import classes from "./textarea.module.css";
+import classes from "./textarea.module.scss";
 
 interface TextAreaProps {
   name: string;

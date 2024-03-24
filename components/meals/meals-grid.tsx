@@ -1,4 +1,4 @@
-import classes from "./meals-grid.module.css";
+import classes from "./meals-grid.module.scss";
 import MealItem from "./meal-item";
 import { MealItem as MealItemProps } from "./types";
 
